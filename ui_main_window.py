@@ -1,0 +1,145 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'ui_main_window.ui'
+##
+## Created by: Qt User Interface Compiler version 6.9.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QComboBox, QDateTimeEdit, QLabel,
+    QLineEdit, QMainWindow, QMenuBar, QPlainTextEdit,
+    QPushButton, QSizePolicy, QStatusBar, QVBoxLayout,
+    QWidget)
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        if not MainWindow.objectName():
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(964, 687)
+        self.centralwidget = QWidget(MainWindow)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(520, 40, 101, 16))
+        self.lineEdit = QLineEdit(self.centralwidget)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setGeometry(QRect(520, 60, 351, 22))
+        self.label_2 = QLabel(self.centralwidget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(520, 310, 121, 16))
+        self.pushButton_2 = QPushButton(self.centralwidget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(520, 420, 171, 24))
+        self.comboBox = QComboBox(self.centralwidget)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox.setGeometry(QRect(520, 330, 111, 24))
+        self.comboBox.setEditable(False)
+        self.comboBox.setMaxVisibleItems(6)
+        self.label_4 = QLabel(self.centralwidget)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(520, 90, 141, 16))
+        self.plainTextEdit = QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit.setObjectName(u"plainTextEdit")
+        self.plainTextEdit.setGeometry(QRect(520, 110, 311, 191))
+        self.label_3 = QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(520, 360, 101, 20))
+        self.label_6 = QLabel(self.centralwidget)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(700, 360, 71, 20))
+        self.comboBox_2 = QComboBox(self.centralwidget)
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.setObjectName(u"comboBox_2")
+        self.comboBox_2.setGeometry(QRect(50, 40, 81, 24))
+        self.pushButton_3 = QPushButton(self.centralwidget)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setGeometry(QRect(130, 40, 79, 24))
+        self.pushButton_4 = QPushButton(self.centralwidget)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setGeometry(QRect(790, 10, 79, 24))
+        self.pushButton_5 = QPushButton(self.centralwidget)
+        self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_5.setGeometry(QRect(290, 40, 101, 24))
+        self.verticalLayoutWidget = QWidget(self.centralwidget)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(50, 80, 331, 491))
+        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayoutWidget_2 = QWidget(self.centralwidget)
+        self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
+        self.verticalLayoutWidget_2.setGeometry(QRect(520, 460, 351, 171))
+        self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.dateTimeEdit = QDateTimeEdit(self.centralwidget)
+        self.dateTimeEdit.setObjectName(u"dateTimeEdit")
+        self.dateTimeEdit.setGeometry(QRect(520, 380, 151, 24))
+        self.dateTimeEdit_2 = QDateTimeEdit(self.centralwidget)
+        self.dateTimeEdit_2.setObjectName(u"dateTimeEdit_2")
+        self.dateTimeEdit_2.setGeometry(QRect(690, 380, 151, 24))
+        self.label_5 = QLabel(self.centralwidget)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(520, 10, 49, 16))
+        self.pushButton_6 = QPushButton(self.centralwidget)
+        self.pushButton_6.setObjectName(u"pushButton_6")
+        self.pushButton_6.setGeometry(QRect(700, 420, 91, 24))
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QMenuBar(MainWindow)
+        self.menubar.setObjectName(u"menubar")
+        self.menubar.setGeometry(QRect(0, 0, 964, 33))
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QStatusBar(MainWindow)
+        self.statusbar.setObjectName(u"statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+
+        QMetaObject.connectSlotsByName(MainWindow)
+    # setupUi
+
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Titre", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u00c9tat", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Ajouter un commentaire", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"\u00c0 faire", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"En cours", None))
+        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"R\u00e9alis\u00e9", None))
+        self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"Abandonn\u00e9", None))
+        self.comboBox.setItemText(4, QCoreApplication.translate("MainWindow", u"En attente", None))
+
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Description", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Date de d\u00e9but", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Date de fin", None))
+        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"\u00c0 faire", None))
+        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"En cours", None))
+        self.comboBox_2.setItemText(2, QCoreApplication.translate("MainWindow", u"R\u00e9alis\u00e9", None))
+        self.comboBox_2.setItemText(3, QCoreApplication.translate("MainWindow", u"Abandonn\u00e9", None))
+        self.comboBox_2.setItemText(4, QCoreApplication.translate("MainWindow", u"En attente", None))
+
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Filtrer", None))
+        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Cl\u00f4turer", None))
+        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Nouvelle t\u00e2che", None))
+        self.label_5.setText("")
+        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Enregistrer", None))
+    # retranslateUi
+

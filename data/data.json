@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "title": "Faire les courses",
+        "description": "",
+        "date_begining": "01/01/2000 00:00",
+        "date_ending": "01/01/2000 00:00",
+        "state": "À faire"
+    },
+    {
+        "id": 2,
+        "title": "Passer l'aspirateur",
+        "description": "",
+        "date_begining": "01/01/2025 15:00",
+        "date_ending": "01/01/2025 16:00",
+        "state": "En cours"
+    }
+]
