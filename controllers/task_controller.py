@@ -1,8 +1,25 @@
 import json
 import os
 
-def filter_tasks_by_state():
-    pass
+def get_filtered_tasks(self):
+    state = self.ui.comboBox_2.currentText().strip()
+    all_tasks = get_all_tasks()
+
+    print(f"Filtrage des tâches par statut : {state}")
+
+    if (state == "Tous les statuts"):
+        return all_tasks    
+
+    filtered_tasks = [task for task in all_tasks if task.get("state", "") == state]
+
+    if not filtered_tasks:
+        print(f"Aucune tâche trouvée avec le statut : {state}")
+        return []
+    else :
+        return filtered_tasks
+
+def filter_tasks_by_state(self):
+    self.setTasksView(filtered = True)
 
 # Récupérer toutes les tâches
 def get_all_tasks():
@@ -29,12 +46,10 @@ def save_task(self):
     data_path = "data/data.json"
     data = get_all_tasks()  # doit renvoyer une liste ([]) si fichier inexistant
 
-    # Récupérer l'ID s'il y en a, sinon None
     id_text = self.ui.label_5.text().strip()
     if id_text:
         task_id = int(id_text)
     else:
-        # nouvel id : max(existing ids) + 1, ou 1 si liste vide
         max_id = max((int(t.get("id", 0)) for t in data), default=0)
         task_id = int(max_id) + 1
 
@@ -50,11 +65,10 @@ def save_task(self):
         "state": state
     }
 
-    # Chercher si l'ID existe déjà
     found = False
     for i, existing in enumerate(data):
         if int(existing.get("id")) == task_id:
-            data[i] = new_task     # remplace l'élément existant par la nouvelle tâche
+            data[i] = new_task 
             found = True
             display_text = "mise à jour"
             break
@@ -63,9 +77,10 @@ def save_task(self):
         data.append(new_task)
         display_text = "créée"
 
-    # Sauvegarde
+    # Sauvegarde de la nouvelle liste
     os.makedirs(os.path.dirname(data_path), exist_ok=True)
     with open(data_path, "w", encoding='utf-8') as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
 
     print(f"Tâche {display_text} : {new_task}")
+    self.setTasksView()

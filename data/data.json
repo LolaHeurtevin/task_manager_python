@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "Faire les courses",
-        "description": "",
+        "description": "lait\nsalade\npain\ntomates\nconcombre\ncourgette\naubergine\ncitrons\ncharbon",
         "date_begining": "01/01/2000 00:00",
         "date_ending": "01/01/2000 00:00",
         "state": "À faire"
@@ -14,5 +14,21 @@
         "date_begining": "01/01/2025 15:00",
         "date_ending": "01/01/2025 16:00",
         "state": "En cours"
+    },
+    {
+        "id": 3,
+        "title": "Faire à manger",
+        "description": "",
+        "date_begining": "12/06/2025 12:00",
+        "date_ending": "12/06/2025 13:00",
+        "state": "En cours"
+    },
+    {
+        "id": 4,
+        "title": "Arroser les plantes",
+        "description": "Arroser le pilea, la fougère, la misère, l'aloe",
+        "date_begining": "07/11/2025 15:00",
+        "date_ending": "07/11/2025 15:15",
+        "state": "À faire"
     }
 ]

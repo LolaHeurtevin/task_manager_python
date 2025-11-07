@@ -7,6 +7,7 @@ class TaskState(Enum):
     ABANDONED = "abandonné"
     WAITING = "en attente"
 
+# Définition de la classe Task
 class Task():
     def __init__(self, id: int, title: str, description: str, date_begining: datetime, date_ending: datetime, comments: list, state: TaskState = TaskState.TODO):
         if not id:

@@ -1,20 +1,25 @@
 from controllers.task_controller import get_all_tasks
 from PySide6.QtWidgets import QFrame, QLabel, QPushButton, QVBoxLayout, QMainWindow
 from views.task_form_view import MainWindowView
+from controllers.task_controller import get_filtered_tasks
 from functools import partial
 
 class TaskView(QMainWindow):
-    def setTasksView(self, ui):
-        data = get_all_tasks()
+    def setTasksView(self, filtered = False):
+        if (filtered):
+            data = get_filtered_tasks(self)
+        else: 
+            data = get_all_tasks()
 
         if not data:
-            label = QLabel("Aucune tâche à afficher.")
-            ui.verticalLayout.addWidget(label)
+            self.ui.scrollArea.setVisible(False)
             return
+        else:
+            self.ui.scrollArea.setVisible(True)
 
         # Delete existing task cards
-        while ui.verticalLayout.count():
-            child = ui.verticalLayout.takeAt(0)
+        while self.ui.verticalLayout.count():
+            child = self.ui.verticalLayout.takeAt(0)
             if child.widget():
                 child.widget().deleteLater()
 
@@ -28,7 +33,7 @@ class TaskView(QMainWindow):
 
             button = QPushButton(title)
             button.setStyleSheet("text-align: left; padding: 10px; font-weight: bold;")
-            button.clicked.connect(partial(self.setTaskView, ui, task))
+            button.clicked.connect(partial(self.setTaskView, task))
 
             label = QLabel(title)
             label.setStyleSheet("font-size: 16px; font-weight: bold; color: #333;")
@@ -38,5 +43,5 @@ class TaskView(QMainWindow):
             layout.addWidget(label)
 
             #ui.verticalLayout.addWidget(card)
-            ui.verticalLayout.addWidget(button)
-            ui.verticalLayout.addStretch()
+            self.ui.verticalLayout.addWidget(button)
+            self.ui.verticalLayout.addStretch()

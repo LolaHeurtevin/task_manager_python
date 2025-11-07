@@ -22,7 +22,7 @@ class MainWindowView(QMainWindow):
         ui.comboBox.setVisible(False)
         ui.plainTextEdit.setVisible(False)
 
-        ui.pushButton_5.clicked.connect(lambda: self.add_new_task())
+        ui.pushButton_5.clicked.connect(lambda: self.setNewTaskView())
         ui.pushButton_3.clicked.connect(lambda: filter_tasks_by_state(self))
         ui.pushButton_6.clicked.connect(lambda: save_task(self))
 
@@ -43,21 +43,32 @@ class MainWindowView(QMainWindow):
         self.ui.plainTextEdit.setVisible(True)
 
     # Afficher une tâche existante dans le formulaire
-    def setTaskView(self, ui, task):
+    def setTaskView(self, task):
         self.add_new_task()
 
         if (task.get("id")):
-            ui.label_5.setText(str(task.get("id")))
+            self.ui.label_5.setText(str(task.get("id")))
         
-        ui.lineEdit.setText(task.get("title", ""))
+        self.ui.lineEdit.setText(task.get("title", ""))
 
         db = QDateTime.fromString(task.get("date_beginning", ""), "dd/MM/yyyy HH:mm")
         de = QDateTime.fromString(task.get("date_ending", ""), "dd/MM/yyyy HH:mm")
-        ui.dateTimeEdit.setDateTime(db)
-        ui.dateTimeEdit_2.setDateTime(de)
+        self.ui.dateTimeEdit.setDateTime(db)
+        self.ui.dateTimeEdit_2.setDateTime(de)
 
-        index = ui.comboBox.findText(task.get("state", ""), QtCore.Qt.MatchFixedString)
+        index = self.ui.comboBox.findText(task.get("state", ""), QtCore.Qt.MatchFixedString)
         if index >= 0:
-            ui.comboBox.setCurrentIndex(index)
+            self.ui.comboBox.setCurrentIndex(index)
 
-        ui.plainTextEdit.setPlainText(task.get("description", ""))
+        self.ui.plainTextEdit.setPlainText(task.get("description", ""))
+
+    def setNewTaskView(self):
+        self.add_new_task()
+        date = QDateTime.fromString("01/01/2000 00:00", "dd/MM/yyyy HH:mm")
+
+        self.ui.lineEdit.setText("")
+        self.ui.dateTimeEdit.setDateTime(date)
+        self.ui.dateTimeEdit_2.setDateTime(date)
+        self.ui.comboBox.setCurrentIndex(0)
+        self.ui.plainTextEdit.setPlainText("")
+        self.ui.label_5.setText("")

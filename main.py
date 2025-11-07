@@ -16,7 +16,7 @@ class MainWindow(MainWindowView, TaskView):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.setTasksView(self.ui)
+        self.setTasksView()
 
         self.setFormView(self.ui)
 
