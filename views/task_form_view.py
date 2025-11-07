@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QMainWindow
 import PySide6.QtCore as QtCore
-from controllers.task_controller import filter_tasks_by_state, save_task
+from controllers.task_controller import filter_tasks_by_state, save_task, delete_task
 from PySide6.QtCore import QDateTime
 
 class MainWindowView(QMainWindow):
@@ -19,12 +19,14 @@ class MainWindowView(QMainWindow):
         ui.pushButton_2.setVisible(False)
         ui.pushButton_4.setVisible(False)
         ui.pushButton_6.setVisible(False)
+        ui.pushButton_7.setVisible(False)
         ui.comboBox.setVisible(False)
         ui.plainTextEdit.setVisible(False)
 
         ui.pushButton_5.clicked.connect(lambda: self.setNewTaskView())
         ui.pushButton_3.clicked.connect(lambda: filter_tasks_by_state(self))
         ui.pushButton_6.clicked.connect(lambda: save_task(self))
+        ui.pushButton_7.clicked.connect(lambda: delete_task(self))
 
     # Rendre visible le formulaire pour ajouter une nouvelle tâche
     def add_new_task(self):
@@ -39,6 +41,7 @@ class MainWindowView(QMainWindow):
         self.ui.pushButton_2.setVisible(True)
         self.ui.pushButton_4.setVisible(True)
         self.ui.pushButton_6.setVisible(True)
+        self.ui.pushButton_7.setVisible(True)
         self.ui.comboBox.setVisible(True)
         self.ui.plainTextEdit.setVisible(True)
 

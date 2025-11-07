@@ -1,6 +1,31 @@
 import json
 import os
 
+from constants import DATA_PATH
+
+
+def delete_task(self):
+    id_task = int(self.ui.label_5.text())
+    if not id_task:
+        print("Aucun ID trouvé")
+        return
+
+    data = get_all_tasks()
+
+    new_data = [task for task in data if int(task.get("id", 0)) != id_task]
+
+    if len(new_data) == len(data):
+        print(f"Aucune tâche trouvée avec l'ID : {id_task}")
+        return
+
+    os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
+    with open(DATA_PATH, "w", encoding='utf-8') as file:
+        json.dump(new_data, file, indent=4, ensure_ascii=False)
+
+    print(f"Tâche supprimée : {id_task}")
+    self.setTasksView()
+    self.setNewTaskView()
+
 def get_filtered_tasks(self):
     state = self.ui.comboBox_2.currentText().strip()
     all_tasks = get_all_tasks()

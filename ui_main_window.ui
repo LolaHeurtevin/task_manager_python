@@ -323,6 +323,19 @@
      </widget>
     </widget>
    </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>10</y>
+      <width>91</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Supprimer </string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

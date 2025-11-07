@@ -111,6 +111,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.pushButton_7 = QPushButton(self.centralwidget)
+        self.pushButton_7.setObjectName(u"pushButton_7")
+        self.pushButton_7.setGeometry(QRect(520, 10, 91, 24))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -151,5 +154,6 @@ class Ui_MainWindow(object):
         self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Nouvelle t\u00e2che", None))
         self.label_5.setText("")
         self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Enregistrer", None))
+        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Supprimer ", None))
     # retranslateUi
 
