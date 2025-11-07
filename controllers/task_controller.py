@@ -41,7 +41,10 @@ def save_task(self):
         data = get_all_tasks()
 
         # Créer ou récupérer l'ID
-        id = self.ui.label_5.text() if self.ui.label_5.text() else len(data) + 1
+        if (self.ui.label_5.text()):
+            id = self.ui.label_5.text() 
+        elif data:
+            id = max(int(task.get('id', 0)) for task in data) + 1
 
         # Créer la nouvelle tâche
         new_task = {
