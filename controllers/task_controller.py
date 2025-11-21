@@ -79,9 +79,8 @@ def filter_tasks_by_state(self):
 
 # Récupérer toutes les tâches
 def get_all_tasks():
-    data_path = "data/data.json"
     try:
-        with open(data_path, "r", encoding='utf-8') as file:
+        with open(DATA_PATH, "r", encoding='utf-8') as file:
             data = json.load(file)
             return data
     except (FileNotFoundError, json.JSONDecodeError):
@@ -99,7 +98,6 @@ def save_task(self):
         print("Titre vide — rien à enregistrer.")
         return
 
-    data_path = "data/data.json"
     data = get_all_tasks()  # doit renvoyer une liste ([]) si fichier inexistant
 
     id_text = self.ui.label_5.text().strip()
@@ -134,8 +132,8 @@ def save_task(self):
         display_text = "créée"
 
     # Sauvegarde de la nouvelle liste
-    os.makedirs(os.path.dirname(data_path), exist_ok=True)
-    with open(data_path, "w", encoding='utf-8') as file:
+    os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
+    with open(DATA_PATH, "w", encoding='utf-8') as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
 
     print(f"Tâche {display_text} : {new_task}")
