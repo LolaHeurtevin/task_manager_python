@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QMainWindow
 import PySide6.QtCore as QtCore
-from controllers.task_controller import filter_tasks_by_state, save_task, delete_task
+from controllers.task_controller import filter_tasks_by_state, save_task, delete_task, close_task
 from PySide6.QtCore import QDateTime
 
 class MainWindowView(QMainWindow):
@@ -23,8 +23,9 @@ class MainWindowView(QMainWindow):
         ui.comboBox.setVisible(False)
         ui.plainTextEdit.setVisible(False)
 
-        ui.pushButton_5.clicked.connect(lambda: self.setNewTaskView())
         ui.pushButton_3.clicked.connect(lambda: filter_tasks_by_state(self))
+        ui.pushButton_4.clicked.connect(lambda: close_task(self))
+        ui.pushButton_5.clicked.connect(lambda: self.setNewTaskView())
         ui.pushButton_6.clicked.connect(lambda: save_task(self))
         ui.pushButton_7.clicked.connect(lambda: delete_task(self))
 

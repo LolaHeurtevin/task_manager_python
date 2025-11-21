@@ -1,7 +1,38 @@
 import json
 import os
+from PySide6.QtWidgets import QMessageBox
 
 from constants import DATA_PATH
+
+def close_task(self):
+    id_task = int(self.ui.label_5.text())
+    if not id_task:
+        print("Aucun ID trouvé")
+        return
+
+    reply = QMessageBox.question(
+        self,
+        "Confirmation",
+        "Voulez-vous vraiment clôturer cette tâche ?",
+        QMessageBox.Yes | QMessageBox.No
+    )
+
+    if reply == QMessageBox.Yes:
+        data = get_all_tasks()
+
+        for task in data:
+            if (task.get("id", 0)) == id_task:
+                task["state"] = "réalisé"
+        
+        os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
+        with open(DATA_PATH, "w", encoding='utf-8') as file:
+            json.dump(data, file, indent=4, ensure_ascii=False)
+
+        print("Tâche clôturée")
+        self.setTasksView()
+        self.setNewTaskView()
+    else:
+        print("Annulé")
 
 
 def delete_task(self):
