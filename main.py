@@ -16,9 +16,9 @@ class MainWindow(MainWindowView, TaskView):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.setTasksView()
+        self.set_tasks_view()
 
-        self.setFormView(self.ui)
+        self.set_form_view(self.ui)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

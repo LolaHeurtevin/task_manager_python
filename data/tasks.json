@@ -11,8 +11,11 @@
         "id": 4,
         "title": "Arroser les plantes",
         "description": "Arroser le pilea, la fougère, la misère, l'aloe",
-        "date_begining": "07/11/2025 15:00",
+        "date_begining": "01/01/2000 00:00",
         "date_ending": "07/11/2025 15:15",
-        "state": "À faire"
+        "state": "À faire",
+        "comments": [
+            4
+        ]
     }
 ]
