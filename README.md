@@ -6,6 +6,26 @@ Ce projet consiste en la création d'un gestionnaire de tâches sous la forme d'
 - Utilisation de Python et PySide6
 - Archietcture MVC
 
+## Commandes utiles
+### Lancer le projet
+python main.py
+
+### Convertir le fichier QT Designer en Python
+pyside6-uic ui_main_window.ui -o ui_main_window.py
+
+### Ouvrir QtDesigner
+pyside6-designer
+
+## Mode d'emploi
+Une fois le projet lancer, vous pouvez 
+- Filtrer les tâches à l'aide du bouton filtrer, 
+- Ajouter une nouvelle tâche en cliquant sur le bouton "Nouvelle tâche", puis remplir au minimum le titre et cliquer sur le bouton "Enregistrer
+- Ajouter un commentaire à la tâche en cliquant sue le bouton "Ajouter un commentaire", puis écrire le commentaire dans l'emplacement apparu en dessous puis en cliquant sur le bouton "Enregistrer
+- Modifier une tâche en cliquant sur n'importe quelle tâche de la liste de gauche, modifiant n'importe quel champ puis en cliquant sur le bouton "Enregistrer"
+- Supprimer un commentaire en cliquant sur le bouton "Supprimer" d'un commentaire
+- Supprimer une tâche en cliquant sur le bouton "Supprimer" en haut du formulaire de tâche
+- Clôturer une tâche en cliquant sur le bouton "Clôturer" en haut du formulaire de tâche, puis en cliquant sur "Yes"
+
 ## Contraintes fonctionnelles
 - Chaque tâche possède les attributs suivants : 
     - ID (int, obligatoire)
@@ -33,13 +53,5 @@ Ce projet consiste en la création d'un gestionnaire de tâches sous la forme d'
 
 ## Fonctionnalités à implémenter
 - Mise en place des commentaires (avec suppression)
-
-## Commandes utiles
-### Lancer le projet
-python main.py
-
-### Convertir le fichier QT Designer en Python
-pyside6-uic ui_main_window.ui -o ui_main_window.py
-
-### Ouvrir QtDesigner
-pyside6-designer
+- Ajout de messages de confirmation lors de la réalisation d'une action
+- À la clôture d'une tâche, passer automatiquement la date et heure de fin à la date/heure actuelle

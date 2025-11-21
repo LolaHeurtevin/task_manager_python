@@ -5,7 +5,7 @@ from controllers.task_controller import get_filtered_tasks
 from functools import partial
 
 class TaskView(QMainWindow):
-    def setTasksView(self, filtered = False):
+    def set_tasks_view(self, filtered = False):
         if (filtered):
             data = get_filtered_tasks(self)
         else: 
@@ -17,9 +17,15 @@ class TaskView(QMainWindow):
         else:
             self.ui.scrollArea.setVisible(True)
 
-        # Delete existing task cards
-        while self.ui.verticalLayout.count():
-            child = self.ui.verticalLayout.takeAt(0)
+        if self.ui.scrollAreaWidgetContents.layout() is None:
+            self.tasks_layout = QVBoxLayout()
+            self.ui.scrollAreaWidgetContents.setLayout(self.tasks_layout)
+        else:
+            self.tasks_layout = self.ui.scrollAreaWidgetContents.layout()
+
+        # Delete existing comments cards
+        while self.tasks_layout.count():
+            child = self.tasks_layout.takeAt(0)
             if child.widget():
                 child.widget().deleteLater()
 
@@ -32,16 +38,17 @@ class TaskView(QMainWindow):
             #card.setStyleSheet("background-color: #f0f0f0; border-radius: 5px; padding: 10px;")
 
             button = QPushButton(title)
-            button.setStyleSheet("text-align: left; padding: 10px; font-weight: bold;")
-            button.clicked.connect(partial(self.setTaskView, task))
+            button.setStyleSheet("text-align: left; padding: 5px; font-weight: bold;")
+            button.clicked.connect(partial(self.set_task_view, task))
 
             label = QLabel(title)
-            label.setStyleSheet("font-size: 16px; font-weight: bold; color: #333;")
+            label.setStyleSheet("font-size: 16px; color: #333;")
 
             #layout = QVBoxLayout(card)
             layout = QVBoxLayout(button)
             layout.addWidget(label)
 
             #ui.verticalLayout.addWidget(card)
-            self.ui.verticalLayout.addWidget(button)
-            self.ui.verticalLayout.addStretch()
+            self.tasks_layout.addWidget(button)
+
+        self.tasks_layout.addStretch()
