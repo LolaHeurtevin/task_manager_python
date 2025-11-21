@@ -2,7 +2,7 @@ import json
 import os
 from PySide6.QtWidgets import QMessageBox
 
-from constants import DATA_PATH
+from constants import DATA_TASKS_PATH
 
 def close_task(self):
     id_task = int(self.ui.label_5.text())
@@ -24,13 +24,13 @@ def close_task(self):
             if (task.get("id", 0)) == id_task:
                 task["state"] = "réalisé"
         
-        os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
-        with open(DATA_PATH, "w", encoding='utf-8') as file:
+        os.makedirs(os.path.dirname(DATA_TASKS_PATH), exist_ok=True)
+        with open(DATA_TASKS_PATH, "w", encoding='utf-8') as file:
             json.dump(data, file, indent=4, ensure_ascii=False)
 
         print("Tâche clôturée")
-        self.setTasksView()
-        self.setNewTaskView()
+        self.set_tasks_view()
+        self.set_new_task_view()
     else:
         print("Annulé")
 
@@ -49,13 +49,13 @@ def delete_task(self):
         print(f"Aucune tâche trouvée avec l'ID : {id_task}")
         return
 
-    os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
-    with open(DATA_PATH, "w", encoding='utf-8') as file:
+    os.makedirs(os.path.dirname(DATA_TASKS_PATH), exist_ok=True)
+    with open(DATA_TASKS_PATH, "w", encoding='utf-8') as file:
         json.dump(new_data, file, indent=4, ensure_ascii=False)
 
     print(f"Tâche supprimée : {id_task}")
-    self.setTasksView()
-    self.setNewTaskView()
+    self.set_tasks_view()
+    self.set_new_task_view()
 
 def get_filtered_tasks(self):
     state = self.ui.comboBox_2.currentText().strip()
@@ -75,19 +75,21 @@ def get_filtered_tasks(self):
         return filtered_tasks
 
 def filter_tasks_by_state(self):
-    self.setTasksView(filtered = True)
+    self.set_tasks_view(filtered = True)
 
 # Récupérer toutes les tâches
 def get_all_tasks():
     try:
-        with open(DATA_PATH, "r", encoding='utf-8') as file:
+        with open(DATA_TASKS_PATH, "r", encoding='utf-8') as file:
             data = json.load(file)
             return data
     except (FileNotFoundError, json.JSONDecodeError):
-        return []
+        return [] # doit renvoyer une liste ([]) si fichier inexistant
 
 # Enregistrer une nouvelle tâche ou mettre à jour une tâche existante
 def save_task(self):
+    from controllers.comment_controller import save_comment
+
     title = self.ui.lineEdit.text().strip()
     description = self.ui.plainTextEdit.toPlainText().strip()
     date_begining = self.ui.dateTimeEdit.text()
@@ -98,7 +100,7 @@ def save_task(self):
         print("Titre vide — rien à enregistrer.")
         return
 
-    data = get_all_tasks()  # doit renvoyer une liste ([]) si fichier inexistant
+    data = get_all_tasks() 
 
     id_text = self.ui.label_5.text().strip()
     if id_text:
@@ -132,9 +134,10 @@ def save_task(self):
         display_text = "créée"
 
     # Sauvegarde de la nouvelle liste
-    os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
-    with open(DATA_PATH, "w", encoding='utf-8') as file:
+    os.makedirs(os.path.dirname(DATA_TASKS_PATH), exist_ok=True)
+    with open(DATA_TASKS_PATH, "w", encoding='utf-8') as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
 
     print(f"Tâche {display_text} : {new_task}")
-    self.setTasksView()
+    save_comment(self)
+    self.set_tasks_view()
