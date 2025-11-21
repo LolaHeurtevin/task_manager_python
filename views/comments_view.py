@@ -11,6 +11,7 @@ class CommentsViews(QMainWindow):
         self.ui.plainTextEdit_2.setVisible(True)
 
     def set_comments_view(self):
+        self.ui.plainTextEdit_2.setPlainText('')
         comments = get_current_task_comments(self)
 
         if not comments:

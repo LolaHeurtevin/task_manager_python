@@ -50,8 +50,8 @@ Une fois le projet lancer, vous pouvez
 - Filtres les tâches par état
 - Supprimer une tâche
 - Clôturer une tâche : cliquer sur le bouton "Clôturer" fait s'afficher une modale de validation afin de confirmer la clôture de la tâche
-
-## Fonctionnalités à implémenter
 - Mise en place des commentaires (avec suppression)
 - Ajout de messages de confirmation lors de la réalisation d'une action
-- À la clôture d'une tâche, passer automatiquement la date et heure de fin à la date/heure actuelle
+
+## Fonctionnalités à implémenter
+- À la clôture d'une tâche, passer automatiquement la date et heure de fin à la date/heure actuelle (facultatif)

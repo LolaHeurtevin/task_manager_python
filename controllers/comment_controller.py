@@ -2,6 +2,7 @@ import datetime
 import json
 import os
 from controllers.task_controller import get_all_tasks
+from utils.utils import display_operation_outcome
 
 from constants import DATA_COMMENTS_PATH
 from constants import DATA_TASKS_PATH
@@ -41,16 +42,19 @@ def delete_comment(self, id_comment):
     with open(DATA_COMMENTS_PATH, "w", encoding='utf-8') as file:
         json.dump(new_data, file, indent=4, ensure_ascii=False)
 
-    print(f"Commentaire supprimé : {id_comment}")
+    display_operation_outcome(self, "Commentaire supprimé")
+    #print(f"Commentaire supprimé : {id_comment}")
     CommentsViews(self.ui).set_comments_view()
 
-def save_comment(self):
+def save_comment(self, id_task):
     from views.comments_view import CommentsViews
 
     # Ajouter le commentaire à la liste des commentaires
-    id_task = int(self.ui.label_5.text())
     content = self.ui.plainTextEdit_2.toPlainText()
     created_at = datetime.datetime.now()
+
+    if content == "":
+        return
 
     data_comments = get_all_comments()
 
@@ -88,4 +92,5 @@ def save_comment(self):
     print(f"Commentaire attribué")
 
     CommentsViews(self.ui).set_comments_view()
+    display_operation_outcome(self, "Commentaire créé")
         

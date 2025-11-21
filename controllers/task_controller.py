@@ -1,6 +1,7 @@
 import json
 import os
 from PySide6.QtWidgets import QMessageBox
+from utils.utils import display_operation_outcome
 
 from constants import DATA_TASKS_PATH
 
@@ -29,6 +30,7 @@ def close_task(self):
             json.dump(data, file, indent=4, ensure_ascii=False)
 
         print("Tâche clôturée")
+        display_operation_outcome(self, "Tâche clôturée")
         self.set_tasks_view()
         self.set_new_task_view()
     else:
@@ -54,8 +56,10 @@ def delete_task(self):
         json.dump(new_data, file, indent=4, ensure_ascii=False)
 
     print(f"Tâche supprimée : {id_task}")
+
     self.set_tasks_view()
     self.set_new_task_view()
+    display_operation_outcome(self, "Tâche supprimée")
 
 def get_filtered_tasks(self):
     state = self.ui.comboBox_2.currentText().strip()
@@ -92,7 +96,7 @@ def save_task(self):
 
     title = self.ui.lineEdit.text().strip()
     description = self.ui.plainTextEdit.toPlainText().strip()
-    date_begining = self.ui.dateTimeEdit.text()
+    date_beginning = self.ui.dateTimeEdit.text()
     date_ending = self.ui.dateTimeEdit_2.text()
     state = self.ui.comboBox.currentText().strip()
 
@@ -116,7 +120,7 @@ def save_task(self):
         "id": task_id,
         "title": title,
         "description": description,
-        "date_begining": date_begining,
+        "date_beginning": date_beginning,
         "date_ending": date_ending,
         "state": state
     }
@@ -139,5 +143,6 @@ def save_task(self):
         json.dump(data, file, indent=4, ensure_ascii=False)
 
     print(f"Tâche {display_text} : {new_task}")
-    save_comment(self)
+    display_operation_outcome(self, "Tâche enregistrée")
+    save_comment(self, task_id)
     self.set_tasks_view()

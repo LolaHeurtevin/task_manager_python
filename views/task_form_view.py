@@ -51,7 +51,9 @@ class MainWindowView(QMainWindow):
         self.ui.pushButton_7.setVisible(True)
         self.ui.comboBox.setVisible(True)
         self.ui.plainTextEdit.setVisible(True)
+        self.ui.plainTextEdit_2.setVisible(False)
         self.ui.scrollArea_2.setVisible(True)
+        self.ui.scrollArea_2.setVisible(False)
 
     # Afficher une tâche existante dans le formulaire
     def set_task_view(self, task):
@@ -61,6 +63,11 @@ class MainWindowView(QMainWindow):
             self.ui.label_5.setText(str(task.get("id")))
         
         self.ui.lineEdit.setText(task.get("title", ""))
+
+        print("Date JSON:", task.get("date_beginning", ""))
+        db = QDateTime.fromString(task.get("date_beginning", ""), "dd/MM/yyyy HH:mm")
+        print("QDateTime valide ?", db.isValid())
+
 
         db = QDateTime.fromString(task.get("date_beginning", ""), "dd/MM/yyyy HH:mm")
         de = QDateTime.fromString(task.get("date_ending", ""), "dd/MM/yyyy HH:mm")

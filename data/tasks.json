@@ -2,20 +2,28 @@
     {
         "id": 1,
         "title": "Faire les courses",
-        "description": "lait\nsalade\npain\ntomates\nconcombre\ncourgette\naubergine\ncitrons\ncharbon",
-        "date_begining": "01/01/2000 00:00",
-        "date_ending": "01/01/2000 00:00",
+        "description": "lait\nsalade\npain\ntomates",
+        "date_beginning": "16/11/2025 15:00",
+        "date_ending": "16/11/2025 17:00",
+        "state": "Réalisé",
+        "comments": [
+            7
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Arroser les plantes",
+        "description": "- pilea\n- misère\n- basilic",
+        "date_beginning": "21/11/2025 16:00",
+        "date_ending": "21/11/2025 16:15",
         "state": "À faire"
     },
     {
-        "id": 4,
-        "title": "Arroser les plantes",
-        "description": "Arroser le pilea, la fougère, la misère, l'aloe",
-        "date_begining": "01/01/2000 00:00",
-        "date_ending": "07/11/2025 15:15",
-        "state": "À faire",
-        "comments": [
-            4
-        ]
+        "id": 3,
+        "title": "Faire à manger",
+        "description": "Trouver une recette et la réaliser",
+        "date_beginning": "22/11/2025 11:30",
+        "date_ending": "22/11/2025 13:00",
+        "state": "En cours"
     }
 ]

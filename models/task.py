@@ -8,7 +8,7 @@ class TaskState(Enum):
     WAITING = "en attente"
 
 class Task():
-    def __init__(self, id: int, title: str, description: str, date_begining: datetime, date_ending: datetime, comments: list, state: TaskState = TaskState.TODO):
+    def __init__(self, id: int, title: str, description: str, date_beginning: datetime, date_ending: datetime, comments: list, state: TaskState = TaskState.TODO):
         if not id:
             raise ValueError("L'attribut 'id' est obligatoire et ne peut pas être nul ou vide.")
         if not title:
@@ -16,7 +16,7 @@ class Task():
 
         self.id = id
         self.title = title
-        self.date_begining = date_begining
+        self.date_beginning = date_beginning
         self.date_ending = date_ending
         self.description = description
         self.state = state

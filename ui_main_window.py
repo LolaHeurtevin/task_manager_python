@@ -17,8 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QDateTimeEdit, QLabel,
     QLineEdit, QMainWindow, QMenuBar, QPlainTextEdit,
-    QPushButton, QScrollArea, QScrollBar, QSizePolicy,
-    QStatusBar, QVBoxLayout, QWidget)
+    QPushButton, QScrollArea, QSizePolicy, QStatusBar,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -93,23 +93,11 @@ class Ui_MainWindow(object):
         self.pushButton_6.setGeometry(QRect(700, 360, 91, 24))
         self.scrollArea = QScrollArea(self.centralwidget)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setGeometry(QRect(50, 70, 371, 551))
+        self.scrollArea.setGeometry(QRect(50, 70, 371, 471))
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 369, 549))
-        self.verticalLayoutWidget = QWidget(self.scrollAreaWidgetContents)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(10, 10, 351, 551))
-        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalScrollBar = QScrollBar(self.verticalLayoutWidget)
-        self.verticalScrollBar.setObjectName(u"verticalScrollBar")
-        self.verticalScrollBar.setOrientation(Qt.Orientation.Vertical)
-
-        self.verticalLayout.addWidget(self.verticalScrollBar)
-
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 369, 469))
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.pushButton_7 = QPushButton(self.centralwidget)
         self.pushButton_7.setObjectName(u"pushButton_7")
@@ -121,22 +109,13 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
         self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 349, 179))
-        self.verticalLayoutWidget_2 = QWidget(self.scrollAreaWidgetContents_2)
-        self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setGeometry(QRect(10, 10, 331, 161))
-        self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget_2)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.verticalScrollBar_2 = QScrollBar(self.verticalLayoutWidget_2)
-        self.verticalScrollBar_2.setObjectName(u"verticalScrollBar_2")
-        self.verticalScrollBar_2.setOrientation(Qt.Orientation.Vertical)
-
-        self.verticalLayout_2.addWidget(self.verticalScrollBar_2)
-
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.plainTextEdit_2 = QPlainTextEdit(self.centralwidget)
         self.plainTextEdit_2.setObjectName(u"plainTextEdit_2")
         self.plainTextEdit_2.setGeometry(QRect(520, 390, 351, 61))
+        self.label_7 = QLabel(self.centralwidget)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(60, 560, 361, 61))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -178,5 +157,6 @@ class Ui_MainWindow(object):
         self.label_5.setText("")
         self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Enregistrer", None))
         self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Supprimer ", None))
+        self.label_7.setText("")
     # retranslateUi
 
